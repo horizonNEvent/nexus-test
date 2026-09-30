@@ -1,0 +1,28 @@
+# Ambientes e credenciais
+.env
+*.env
+nexus_token.json
+
+# Cache do Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Ambientes virtuais
+.venv/
+venv/
+ENV/
+env/
+
+# Diretório de saída e relatórios gerados
+saida/
+*.pdf
+*.xlsx
+*.zip
+*.xml
+
+# IDEs e editores
+.vscode/
+.idea/
