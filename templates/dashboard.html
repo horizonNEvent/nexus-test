@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nexus Lens | SAAT ONS</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='dashboard.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='auth.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='directory.css') }}">
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar"><div class="brand"><span class="brand-mark">N</span><div><strong>Nexus Lens</strong><small>SAAT ONS / operação</small></div></div><div class="connection"><span class="pulse"></span><span id="connection-label">Pronto para consultar</span></div></header>
+    <section class="intro"><div><p class="eyebrow">Painel operacional</p><h1>Visão de apurações<br><em>sem ruído.</em></h1><p class="lede">Acompanhe AVDs, status de validação e documentos disponíveis em um único lugar.</p></div><div class="intro-note"><span>01</span><p>Atualização sob demanda<br><b>Dados direto da API Nexus</b></p></div></section>
+      <section class="access-panel panel" aria-label="Acesso ao ONS"><div><p class="eyebrow">Acesso seguro</p><h2>Entrar no SAAT Nexus</h2><p class="access-help">As credenciais ficam criptografadas no banco local. O OTP é solicitado somente na primeira autenticação.</p></div><div class="access-fields"><label>Usuário<input id="username" type="email" autocomplete="username" placeholder="seu.usuario@empresa.com.br"></label><label>Senha<input id="password" type="password" autocomplete="current-password" placeholder="Senha do ONS"></label><label>OTP<input id="otp" inputmode="numeric" maxlength="6" placeholder="somente 1ª vez"></label><div class="access-actions"><button id="save-access" class="secondary">Salvar acesso</button><button id="login" class="primary">Entrar no ONS</button></div></div></section>
+      <section class="controls" aria-label="Filtros da consulta"><label>Competência<input id="competence" type="month" value="2026-08"></label><label>Agente AMSE<select id="agent"><option value="4284">4284</option></select></label><button id="refresh" class="primary"><span>↗</span> Atualizar painel</button></section>
+      <section class="agent-directory panel"><div><p class="eyebrow">Escopo de acesso</p><h2>Agentes disponíveis</h2></div><div id="agent-list" class="agent-list"><span class="empty">Autentique-se para consultar os agentes.</span></div></section>
+    <div id="alert" class="alert" hidden></div>
+    <section class="metrics" aria-label="Resumo"><article class="metric metric-main"><small>APURAÇÕES ENCONTRADAS</small><strong id="total">—</strong><span id="period">Competência —</span></article><article class="metric"><small>COM ANEXOS</small><strong id="attachments">—</strong><span class="accent">Documentos disponíveis</span></article><article class="metric"><small>COM VALOR INFORMADO</small><strong id="with-value">—</strong><span>Registros com valor</span></article></section>
+    <section class="content-grid"><article class="panel status-panel"><div class="panel-heading"><div><p class="eyebrow">Leitura rápida</p><h2>Status das apurações</h2></div><span class="panel-index">01</span></div><div id="status-chart" class="status-chart"><div class="empty">Consulte os dados para visualizar a distribuição.</div></div></article><article class="panel attachment-panel"><div class="panel-heading"><div><p class="eyebrow">Arquivos relacionados</p><h2>Documentos recentes</h2></div><span class="panel-index">02</span></div><div id="attachment-list" class="attachment-list"><div class="empty">Nenhum documento carregado.</div></div></article></section>
+    <section class="panel table-panel"><div class="panel-heading"><div><p class="eyebrow">Explorar registros</p><h2>Apurações AVD</h2></div><label class="search"><span>⌕</span><input id="search" type="search" placeholder="Buscar por empresa, status ou ID"></label></div><div class="table-wrap"><table><thead><tr><th>Identificação</th><th>Contraparte</th><th>Status</th><th>Competência</th><th>Valor</th></tr></thead><tbody id="items-table"><tr><td colspan="5" class="empty">Consulte os dados para carregar os registros.</td></tr></tbody></table></div></section>
+    <footer><span>NEXUS LENS</span><span>Conectado ao SAAT Nexus ONS</span><div class="exports"><button data-format="pdf">↓ PDF</button><button data-format="xlsx">↓ XLSX</button></div></footer>
+  </main>
+  <script src="{{ url_for('static', filename='dashboard.js') }}"></script>
+</body>
+</html>

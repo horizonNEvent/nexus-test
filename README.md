@@ -38,6 +38,19 @@ ONS_COMPETENCIA=2026-08
 python main.py
 ```
 
+### Painel interativo
+
+Para abrir a camada de visualização com filtros de competência/agente, KPIs, status, anexos e exportação de relatórios:
+
+```bash
+pip install -r requirements.txt
+python app.py
+```
+
+Acesse `http://127.0.0.1:5000`. O painel usa `ONS_TOKEN` ou o `access_token` salvo em `nexus_token.json`; se ainda não houver token, execute primeiro `python main.py` para concluir o login MFA.
+
+Na própria tela também é possível salvar o usuário e a senha no banco local `nexus_credentials.db` e entrar usando o OTP de 6 dígitos. A senha é criptografada com uma chave local ignorada pelo Git (`nexus_credentials.key`). Em ambientes compartilhados, defina `NEXUS_CREDENTIAL_KEY` no `.env` e proteja esse segredo fora do repositório.
+
 - **Primeira execução:** O Chrome em background carrega a tela do ONS Keycloak e pedirá no terminal o código OTP de 6 dígitos do app autenticador.
 - **Execuções seguintes:** O token é salvo em `nexus_token.json` e renovado automaticamente via `refresh_token`, sem solicitar o código novamente.
 

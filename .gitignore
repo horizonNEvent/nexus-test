@@ -2,6 +2,8 @@
 .env
 *.env
 nexus_token.json
+nexus_credentials.db
+nexus_credentials.key
 
 # Cache do Python
 __pycache__/
